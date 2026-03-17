@@ -1,3 +1,4 @@
+ HEAD
 ## Django QR Code Payment Demo
 
 This project is a small Django web application that demonstrates a QR based payment flow for a petrol pump.
@@ -49,3 +50,6 @@ python manage.py runserver
 - Scan QR: `/qr/scan/`
 - QR History: `/qr/history/`
 
+=======
+# QR_code_system
+>>>>>>> f7f932f049c78995d519032addfff8fce853d136
