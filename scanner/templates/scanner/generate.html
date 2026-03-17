@@ -1,0 +1,30 @@
+{% extends "core/base.html" %}
+{% block title %}Generate QR{% endblock title %}
+{% block content %}
+<div class="center-container">
+    <div class="container">
+        <h1>Generate UPI Payment QR</h1>
+        {% if error %}
+        <div class="alert alert-error">{{ error }}</div>
+        {% endif %}
+        <form action="{% url 'generate_qr' %}" method="post">
+            {% csrf_token %}
+            <input type="text" name="mobile_number" placeholder="Enter 10-digit mobile number" required pattern="\d{10}">
+            <input type="number" step="0.01" name="amount" placeholder="Amount (INR, optional)">
+            <input type="text" name="qr_data" placeholder="Payment note / description (optional)">
+            <button type="submit">Generate</button>
+        </form>
+
+        <div class="qr-preview">
+          {% if qr_image_url %}
+              <h2>Your UPI Payment QR:</h2>
+              <p>Scan this with any UPI app (GPay, PhonePe, etc.) to open the payment screen.</p>
+              <img src="{{ qr_image_url }}" alt="Generated QR Code">
+              <br>
+              <a href="{{ qr_image_url }}" download class="download-button">Save QR</a>
+          {% endif %}
+      </div>
+    </div>
+</div>
+
+{% endblock content %}

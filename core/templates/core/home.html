@@ -1,0 +1,18 @@
+{% extends "core/base.html" %}
+{% block title %}Home{% endblock title %}
+{% block content %}
+<div class="landing">
+  <div class="landing-card">
+    <h2>Secure QR Payments for GS Petrol Pump</h2>
+    <p>
+      Generate unique QR codes tied to a customer's mobile number and validate them at the time of payment.
+      This demo showcases QR generation, scanning, and basic verification flows built with Django.
+    </p>
+    <div class="landing-actions">
+      <a href="{% url 'generate_qr' %}" class="primary-btn">Generate QR</a>
+      <a href="{% url 'scan_qr' %}" class="secondary-btn">Scan & Verify</a>
+      <a href="{% url 'qr_history' %}" class="secondary-btn">View QR History</a>
+    </div>
+  </div>
+</div>
+{% endblock content %}
